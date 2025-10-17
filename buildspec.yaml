@@ -3,7 +3,7 @@ version: 0.2
 env:
   variables:
     AWS_REGION: "ap-south-1"
-    ECR_REPO: "<aws_account_id>.dkr.ecr.ap-south-1.amazonaws.com/trend"
+    ECR_REPO: "814478342408.dkr.ecr.ap-south-1.amazonaws.com/braintask"
 phases:
   pre_build:
     commands:
@@ -22,9 +22,10 @@ phases:
       - echo "Pushing image to ECR..."
       - docker push $REPO_URI:latest
       - echo "Updating kubeconfig for EKS..."
-      - aws eks update-kubeconfig --region $AWS_REGION --name your-eks-cluster-name
-      - kubectl apply -f k8s/deployment.yaml
-      - kubectl apply -f k8s/service.yaml
+      - aws eks update-kubeconfig --region $AWS_REGION --name cluster
+      - kubectl apply -f deployment.yaml
+      - kubectl apply -f service.yaml
 artifacts:
   files:
     - '**/*'
+
