@@ -22,11 +22,10 @@ phases:
       - echo "Pushing image to ECR..."
       - docker push $REPO_URI:latest
       - echo "Updating kubeconfig for EKS..."
-      - aws eks update-kubeconfig --region $AWS_REGION --name cluster
-      - kubectl apply -f deployment.yaml
-      - kubectl apply -f service.yaml
+      
 artifacts:
   files:
     - '**/*'
+
 
 
