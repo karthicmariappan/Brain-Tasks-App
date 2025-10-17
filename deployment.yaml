@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: trend
-          image: 123456789012.dkr.ecr.ap-south-1.amazonaws.com/trend:latest  # replace with ECR URI
+          image: 814478342408.dkr.ecr.ap-south-1.amazonaws.com/braintask  # replace with ECR URI
           ports:
             - containerPort: 80    # change to 3000 if your container listens on 3000
           readinessProbe:
@@ -31,3 +31,4 @@ spec:
               port: 80
             initialDelaySeconds: 20
             periodSeconds: 20
+
