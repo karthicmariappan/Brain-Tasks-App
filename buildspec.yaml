@@ -9,7 +9,7 @@ phases:
     commands:
       - echo "Logging in to Amazon ECR..."
       - aws --version
-      - $(aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin $ECR_REPO | sed 's/^/ /')
+      - aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin $ECR_REPO 
       - REPO_URI=$ECR_REPO
       - echo "REPO_URI=$REPO_URI"
   build:
@@ -28,4 +28,5 @@ phases:
 artifacts:
   files:
     - '**/*'
+
 
